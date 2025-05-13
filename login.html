@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e3f6f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px;
+      width: 100%;
+      background: #00bbf0;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0099cc;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="login()">Login</button>
+    <p>Don't have an account? <a href="index.html">Register</a></p>
+  </div>
+
+  <script>
+    function login() {
+      const enteredUsername = document.getElementById('username').value;
+      const enteredPassword = document.getElementById('password').value;
+
+      const savedUsername = localStorage.getItem('username');
+      const savedPassword = localStorage.getItem('password');
+
+      if (enteredUsername === savedUsername && enteredPassword === savedPassword) {
+        alert('Login successful!');
+        window.location.href = 'main.html';
+      } else {
+        alert('Incorrect username or password.');
+      }
+    }
+  </script>
+</body>
+</html>
